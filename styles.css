@@ -1,0 +1,887 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600;700;900&display=swap');
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body {
+  position: relative;
+  font-size: 16px;
+  min-height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html {
+  height: 100vh;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  caret-color: transparent;
+}
+
+.container {
+  width: min(100% - 3.125rem, 68.75rem);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: unset;
+}
+
+.hamburger {
+  width: 0.9375rem;
+}
+
+.logo,
+.hamburger,
+.cart,
+.user {
+  cursor: pointer;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: hsl(0deg, 0%, 100%);
+  z-index: 99;
+  padding-block: 1.25rem;
+  box-shadow: 0 0.0625rem 0.625rem -0.125rem hsl(219deg, 9%, 45%);
+  transition: all 0.3s ease;
+}
+@media (min-width: 56.25rem) {
+  header {
+    box-shadow: unset;
+    padding-block: 1.5625rem;
+  }
+  header .container {
+    position: relative;
+  }
+  header .container::after {
+    content: "";
+    position: absolute;
+    top: 4.875rem;
+    left: 0;
+    width: 100%;
+    height: 0.0625rem;
+    opacity: 0.1;
+    background-color: hsl(219deg, 9%, 45%);
+  }
+}
+header .container {
+  gap: 0.9375rem;
+}
+header .container .logo {
+  justify-self: flex-end;
+  width: 8.75rem;
+  padding: 1px;
+}
+header .container .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  display: none;
+}
+header .container .user-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: flex-end;
+  flex-grow: 1;
+  gap: 1.0625rem;
+}
+header .container .user-details .cart .checkout {
+  opacity: 0;
+  visibility: hidden;
+  height: 15.625rem;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  position: absolute;
+  top: 4.375rem;
+  right: 0;
+  left: 0;
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: 0.0625rem 0.4375rem 0.9375rem -0.0625rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  z-index: 2;
+  width: min(100% - 1.25rem, 28.75rem);
+  margin-inline: auto;
+}
+header .container .user-details .cart .checkout .items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3.125rem;
+}
+@media (min-width: 56.25rem) {
+  header .container .user-details .cart .checkout {
+    left: unset;
+  }
+}
+header .container .user-details .cart .checkout h3 {
+  display: block;
+  font-size: 0.9375rem;
+  width: 100%;
+  padding: 1.5625rem;
+  position: relative;
+}
+header .container .user-details .cart .checkout h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.0625rem;
+  background-color: hsl(219deg, 9%, 45%);
+  opacity: 0.2;
+}
+header .container .user-details .cart .checkout h2 {
+  font-size: 1.25rem;
+  color: hsl(220deg, 13%, 13%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  height: 100%;
+}
+header .container .user-details .cart .checkout .items {
+  width: 100%;
+  padding: 1.5625rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .sneaker-img {
+  width: 3.125rem;
+  border-radius: 0.3125rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .sneaker-img img {
+  border-radius: 0.3125rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4375rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .details p {
+  font-weight: 400;
+  color: hsl(219deg, 9%, 45%);
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .details p span {
+  color: hsla(0deg, 0%, 0%, 0.774);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+header .container .user-details .cart .checkout .items .sneaker-checkout .delete {
+  width: 0.875rem;
+  cursor: pointer;
+}
+header .container .user-details .cart .checkout .items button {
+  display: block;
+  width: 100%;
+  text-transform: capitalize;
+  margin-top: 1.4375rem;
+  margin-bottom: 0.3125rem;
+  border: none;
+  padding: 1.25rem;
+  background-color: hsl(26deg, 100%, 55%);
+  color: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+header .container .user-details .cart .checkout .items button:hover {
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+header .container .user-details .cart .show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  height: 18.75rem;
+}
+header .container .user-details .cart .scroll {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+header .container .user-details .cart .scroll::-webkit-scrollbar {
+  width: 0.0625rem;
+}
+header .container .user-details .cart .scroll::-webkit-scrollbar-track {
+  background-color: hsl(220deg, 14%, 75%);
+}
+header .container .user-details .cart .scroll::-webkit-scrollbar-thumb {
+  background-color: hsl(26deg, 100%, 55%);
+  border-radius: 0.375rem;
+}
+header .container .user-details .before:before {
+  content: attr(data-count);
+  text-align: center;
+  font-size: 0.8125rem;
+  color: hsl(0deg, 0%, 100%);
+  position: relative;
+  display: grid;
+  place-content: center;
+  top: 0.5625rem;
+  left: 0.625rem;
+  width: 0.8125rem;
+  padding-inline: 0.75rem;
+  border-radius: 0.625rem;
+  height: 1.0625rem;
+  background-color: hsl(26deg, 100%, 55%);
+}
+header .container .user-details .user {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  border-radius: 100%;
+  border: 0.15625rem solid transparent;
+  transition: border 0.5s ease;
+}
+header .container .user-details .user img {
+  border-radius: 100%;
+}
+header .container .user-details .user:hover {
+  border: 0.15625rem solid hsl(26deg, 100%, 55%);
+  transition: border 0.5s ease;
+}
+@media (min-width: 56.25rem) {
+  header .container .logo {
+    margin-right: 2.1875rem;
+  }
+  header .container .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5625rem;
+  }
+  header .container .nav-links li {
+    list-style: none;
+  }
+  header .container .nav-links li a {
+    text-decoration: none;
+    font-weight: 400;
+    color: hsl(219deg, 9%, 45%);
+    font-size: 1.0625rem;
+  }
+  header .container .nav-links li a:hover {
+    color: hsl(220deg, 13%, 13%);
+    transition: 0.4s ease;
+  }
+  header .container .nav-links .active {
+    position: relative;
+  }
+  header .container .nav-links .active a {
+    color: hsl(26deg, 100%, 55%);
+  }
+  header .container .nav-links .active::before {
+    content: "";
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    width: 100%;
+    height: 0.1875rem;
+    background-color: hsl(26deg, 100%, 55%);
+  }
+  header .container .hamburger {
+    display: none;
+  }
+  header .container .user-details .user {
+    margin-left: 1.875rem;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+}
+
+@media (min-width: 56.25rem) {
+  .active-scroll {
+    padding-block: 0.625rem;
+    -webkit-backdrop-filter: blur(7px);
+            backdrop-filter: blur(7px);
+    background-color: rgba(238, 224, 224, 0.13);
+  }
+  .active-scroll .container .nav-links li a {
+    color: hsl(220deg, 13%, 13%);
+  }
+  .active-scroll .container:after {
+    display: none;
+  }
+  .active-scroll .container .active::before {
+    display: none;
+  }
+  .active-scroll .container .active a {
+    font-weight: 400;
+  }
+  .active-scroll .container .active a:hover, .active-scroll .container .active a:active {
+    color: hsl(26deg, 100%, 55%);
+  }
+}
+main {
+  padding-top: 1.25rem;
+  display: grid;
+}
+@media (min-width: 27.5rem) {
+  main {
+    margin: 0;
+  }
+  main .container .left-container .show-sneakers {
+    margin-inline: auto;
+    border-radius: 0 0 50% 50%;
+  }
+  main .container .left-container .show-sneakers .sneaker {
+    border-radius: 0 0 50% 50%;
+  }
+  main .container .right-container {
+    max-width: 43.75rem;
+  }
+  main .container .right-container .pricing-cart {
+    margin-top: 1.875rem;
+  }
+}
+main .container {
+  margin-inline: unset;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 56.25rem) {
+  main .container {
+    width: min(100% - 1.25rem, 62.5rem);
+    margin-inline: auto;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 7.5rem;
+  }
+  main .container .left-container .show-sneakers {
+    border-radius: unset;
+  }
+  main .container .left-container .show-sneakers .sneaker {
+    border-radius: unset;
+  }
+}
+main .container .review-sneakers {
+  display: none;
+}
+main .container .left-container {
+  height: clamp(27.5rem, 21.25rem + 2vw, 28.125rem);
+  background-size: cover;
+}
+main .container .left-container .show-sneakers {
+  overflow: hidden;
+  position: relative;
+  height: 23.125rem;
+  max-width: 27.5rem;
+  position: relative;
+  height: 23.125rem;
+}
+main .container .left-container .show-sneakers .showcase {
+  height: 21.875rem;
+}
+main .container .left-container .show-sneakers .sneaker {
+  height: 100%;
+}
+main .container .left-container .show-sneakers .arrows {
+  cursor: pointer;
+  position: absolute;
+  top: 0.625rem;
+  left: 0;
+  right: 0;
+  width: min(100% - 1.25rem, 25rem);
+  height: 100%;
+  margin-inline: auto;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+}
+main .container .left-container .show-sneakers .arrows .next,
+main .container .left-container .show-sneakers .arrows .prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.5625rem, 0.625rem + 1vw, 1.0625rem);
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 100%;
+}
+main .container .left-container .show-sneakers .arrows .next img,
+main .container .left-container .show-sneakers .arrows .prev img {
+  width: 0.8125rem;
+  height: 0.8125rem;
+}
+main .container .left-container .show-sneakers .showcase {
+  height: 21.875rem;
+}
+main .container .left-container .show-sneakers .showcase .remove {
+  display: none;
+}
+main .container .left-container .show-sneakers .showcase .scroll {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+main .container .left-container .show-sneakers .sneaker {
+  height: 100%;
+}
+main .container .right-container {
+  width: min(100% - 2.375rem, 50rem);
+  margin-inline: auto;
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container {
+    width: 100%;
+  }
+}
+main .container .right-container .header {
+  margin-top: 1.25rem;
+}
+main .container .right-container .header span {
+  color: hsl(26deg, 100%, 55%);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+main .container .right-container .header h1 {
+  margin-top: 1.0625rem;
+  font-weight: 700;
+  font-size: 1.6875rem;
+  color: hsl(220deg, 13%, 13%);
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container .header {
+    margin-top: 0;
+  }
+  main .container .right-container .header h1 {
+    font-size: 2.8125rem;
+    line-height: 1;
+  }
+}
+main .container .right-container p {
+  margin-top: 1.25rem;
+  line-height: 1.5;
+  color: hsl(219deg, 9%, 45%);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container p {
+    margin-top: 2.1875rem;
+  }
+}
+main .container .right-container .pricing-cart {
+  max-width: 25rem;
+  margin-inline: auto;
+}
+main .container .right-container .pricing-cart .pricing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container .pricing-cart .pricing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+  }
+}
+main .container .right-container .pricing-cart .pricing h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: hsl(220deg, 13%, 13%);
+  display: flex;
+  align-items: center;
+}
+main .container .right-container .pricing-cart .pricing h2 span {
+  font-size: 1.0625rem;
+  color: hsl(26deg, 100%, 55%);
+  background-color: hsl(25deg, 100%, 94%);
+  margin-left: 1.25rem;
+  padding: 0.3125rem 0.4375rem;
+  border-radius: 0.375rem;
+  font-weight: 700;
+}
+main .container .right-container .pricing-cart .pricing .reduction {
+  font-weight: 400;
+  color: hsl(220deg, 14%, 75%);
+  text-decoration: line-through;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+main .container .right-container .pricing-cart .add-cart {
+  margin-top: 1.875rem;
+}
+main .container .right-container .pricing-cart .add-cart .range {
+  margin-bottom: 1.25rem;
+  background-color: hsl(223deg, 64%, 98%);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.625rem;
+}
+main .container .right-container .pricing-cart .add-cart .range .plus,
+main .container .right-container .pricing-cart .add-cart .range .minus {
+  width: 0.75rem;
+  height: 0.75rem;
+  cursor: pointer;
+}
+main .container .right-container .pricing-cart .add-cart .range .minus {
+  height: 0.3125rem;
+  width: 0.75rem;
+}
+main .container .right-container .pricing-cart .add-cart .range .count {
+  font-weight: 700;
+  color: hsl(220deg, 13%, 13%);
+  font-size: 1rem;
+}
+main .container .right-container .pricing-cart .add-cart .button {
+  box-shadow: 0 0.3125rem 0.625rem -0.125rem hsl(26deg, 100%, 55%);
+  transition: 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(26deg, 100%, 55%);
+  padding: 0.9375rem;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  margin-bottom: 3.75rem;
+}
+main .container .right-container .pricing-cart .add-cart .button:hover {
+  opacity: 0.8;
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container .pricing-cart .add-cart .button {
+    margin: 0;
+  }
+}
+main .container .right-container .pricing-cart .add-cart .button .cart {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  margin-right: 0.625rem;
+}
+main .container .right-container .pricing-cart .add-cart .button p {
+  color: hsl(223deg, 64%, 98%);
+  margin: 0;
+  font-weight: 700;
+}
+@media (min-width: 56.25rem) {
+  main .container .right-container .pricing-cart .add-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 9.375rem 1fr;
+    place-content: center;
+    gap: 1.25rem;
+  }
+  main .container .right-container .pricing-cart .add-cart .range {
+    margin: 0;
+  }
+}
+@media (min-width: 56.25rem) {
+  main {
+    padding-top: 8.75rem;
+  }
+  main .container .left-container {
+    height: unset;
+    border-radius: 0.9375rem;
+  }
+  main .container .left-container .show-sneakers {
+    width: 100%;
+    height: 100%;
+  }
+  main .container .left-container .show-sneakers .showcase {
+    height: 27.5rem;
+    border-radius: 1.25rem;
+  }
+  main .container .left-container .show-sneakers .showcase .sneaker {
+    border-radius: 1.25rem;
+  }
+  main .container .left-container .show-sneakers .showcase .remove {
+    display: flex;
+  }
+  main .container .left-container .show-sneakers .showcase .mobile-slider {
+    display: none;
+  }
+  main .container .left-container .show-sneakers .arrows {
+    display: none;
+  }
+  main .container .left-container .review-sneakers {
+    display: flex;
+    margin-block: 1.25rem;
+    gap: 1.25rem;
+  }
+  main .container .left-container .review-sneakers .thumb {
+    border-radius: 0.8125rem;
+    border: 0.125rem solid transparent;
+    overflow: hidden;
+    border-radius: 0.9375rem;
+  }
+  main .container .left-container .review-sneakers .thumb:hover {
+    opacity: 0.5;
+    transition: opacity 0.4s ease-in;
+  }
+  main .container .left-container .review-sneakers .thumb img {
+    height: 100%;
+  }
+  main .container .left-container .review-sneakers .active {
+    border: 0.125rem solid hsl(26deg, 100%, 55%);
+  }
+  main .container .left-container .review-sneakers .active:hover {
+    opacity: unset;
+  }
+  main .container .left-container .review-sneakers .active img {
+    opacity: 0.3;
+  }
+}
+
+.lightbox {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s ease-in-out;
+}
+@media (min-width: 56.25rem) {
+  .lightbox {
+    display: none;
+  }
+}
+.lightbox .mobile-navigation {
+  z-index: 2;
+  height: 100vh;
+  width: 65%;
+  background-color: hsl(0deg, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.125rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.875rem;
+  transform: translateX(-110%);
+  transition: transform 0.4s ease-in-out;
+  visibility: visible;
+}
+.lightbox .mobile-navigation .mobile-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+.lightbox .mobile-navigation .mobile-links li {
+  list-style: none;
+}
+.lightbox .mobile-navigation .mobile-links li a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: hsl(220deg, 13%, 13%);
+}
+.lightbox .mobile-navigation .mobile-links li a:hover {
+  color: hsl(26deg, 100%, 55%);
+  transition: 0.3s ease;
+}
+.lightbox .mobile-navigation .close {
+  width: 0.875rem;
+}
+.lightbox .show-nav {
+  transform: translateX(0);
+  transition: transform 0.4s ease-in;
+}
+
+.show-lightbox {
+  background-color: hsla(0deg, 0%, 0%, 0.774);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+  transition: transform 0.6s ease-in-out;
+}
+
+.desktop-lightbox {
+  transition: 0.3s ease;
+  background-color: hsla(0deg, 0%, 0%, 0.76);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 56.25rem) {
+  .desktop-lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.desktop-lightbox .main {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: 30rem;
+  position: relative;
+  height: 100%;
+}
+.desktop-lightbox .main .arrows {
+  position: absolute;
+  top: -1rem;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.desktop-lightbox .main .arrows .prev,
+.desktop-lightbox .main .arrows .next {
+  cursor: pointer;
+  background-color: #fff;
+  padding: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+.desktop-lightbox .main .arrows .prev img,
+.desktop-lightbox .main .arrows .next img {
+  width: 0.9375rem;
+  height: 0.9375rem;
+  aspect-ratio: 1/1;
+}
+.desktop-lightbox .main .close {
+  width: 1.0625rem;
+  margin-left: auto;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 99;
+}
+.desktop-lightbox .main .show-sneakers {
+  max-width: 28.125rem;
+  height: auto;
+  position: relative;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+.desktop-lightbox .main .show-sneakers .desktop-showcase {
+  width: 28.125rem;
+  height: 25rem;
+  border-radius: 0rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  transition: transform 0.3s ease;
+}
+.desktop-lightbox .main .show-sneakers .desktop-showcase .slider {
+  width: 28.125rem;
+  height: 25rem;
+}
+.desktop-lightbox .main .show-sneakers .desktop-showcase .slider img {
+  height: 100%;
+  width: 100%;
+}
+.desktop-lightbox .main .show-sneakers .desktop-showcase .sneaker {
+  border-radius: 0rem;
+}
+.desktop-lightbox .main .sneak-peak {
+  margin-top: 1.875rem;
+  gap: 0.9375rem;
+  max-width: 25rem;
+  margin-inline: auto;
+  height: 4.375rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.desktop-lightbox .main .sneak-peak .the-sneaker {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border-radius: 0.8125rem;
+  border: 0.125rem solid transparent;
+  overflow: hidden;
+  border-radius: 0.8125rem;
+}
+.desktop-lightbox .main .sneak-peak .the-sneaker:hover {
+  opacity: 0.9;
+  transition: opacity 0.4s ease-in;
+}
+.desktop-lightbox .main .sneak-peak .the-sneaker img {
+  height: 100%;
+}
+.desktop-lightbox .main .sneak-peak .active {
+  border: 0.125rem solid hsl(26deg, 100%, 55%);
+  background-color: rgba(255, 255, 255, 0.651);
+}
+.desktop-lightbox .main .sneak-peak .active img {
+  opacity: 0.3;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s ease;
+}
